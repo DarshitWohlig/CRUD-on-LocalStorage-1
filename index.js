@@ -35,7 +35,7 @@ function manageData(){
             document.getElementById('name').value='';
             document.getElementById('msg').innerHTML='Data Updated';
         }
-        selectData();
+        selectData();    //
     }
     
 }
@@ -78,4 +78,4 @@ function deleteData(refID){
 
 // https://www.youtube.com/watch?v=MRwWB6Cz-Vk  on LocalStorage
 
-// https://www.youtube.com/watch?v=W1Kttu53qTg using Database....
+// https://www.youtube.com/watch?v=W1Kttu53qTg using Database...
