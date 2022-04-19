@@ -35,7 +35,7 @@ function manageData(){
             document.getElementById('name').value='';
             document.getElementById('msg').innerHTML='Data Updated';
         }
-        selectData();    //
+        selectData();
     }
     
 }
