@@ -1,0 +1,43 @@
+<!DOCTYPE html>  <!--The DOCTYPE declaration is an instruction to the web browser about what version of HTML the page is written in.-->
+<html lang="en">  <!-- used to identify the language of text content on the web.-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+</head>
+<body>
+    <h2>FORM</h2>
+    <form>
+        <input type="text" id="name">
+        <input type="button" value="Submit" onclick="manageData()">
+    </form>
+
+    <div id="msg">
+
+    </div>
+
+    <h2>LIST</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Sr. no</td>
+                <td>Name</td>
+                <td>Actions</td>
+            </tr>
+        </thead>
+        
+        <tbody class="rooting" id="root">
+
+        </tbody>
+    </table>
+
+    <div id="pagination-wrapper"></div>
+
+    <script src="index.js"></script>
+
+
+
+</body>
+</html>
