@@ -11,42 +11,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> <!-- Jquery extension-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
     <title>CRUD</title>
 </head>
-
-<style>
-     select{
-width: 126px;
-padding: 6px;
-margin: 5px epx;
-border: 1px solid #ccc;
-cursor: pointer;
-outline: none;
-     }
-    .pagination {
-        height: 50px;
-        padding: 0px 5px;
-        width: auto;
-        float: right;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
-
-    ul li {
-        list-style: none;
-        padding: 5px 10px;
-        font-weight: bold;
-        border: 1px solid rgb(207, 201, 201);
-    }
-
-    td :nth-child(6)>input {
-        float: none;
-        margin: 0;
-        width: 15px;
-        height: 15px;
-    }
-</style>
 
 <body>
     <h2>FORM </h2>
@@ -74,72 +42,19 @@ outline: none;
 
         </tbody>
     </table>
-    <br>
-    <br>
-
-    <section>
-        <div>
-            <p>View item in a page</p>
-            <select name="" id="">
-                <option value="2">2</option>
-                <option value="4">4</option>
-                <option value="6">6</option>
-                <option value="8">8</option>
-                <option value="10">10</option>
-                <option value="12">12</option>
-            </select>
-        </div>
+    <footer>
         <ul class="pagination">
-            <li class="prev"><a href="#" id="prev">&#139;</a></li>
-            <li class="next"><a href="#" id="next">&#155;</a></li>
-        </ul>
-    </section>
-    <br>
-    <br>
-    <div id="pagination-wrapper">
-
-    </div>
-
-    <script>
-        let main = document.getElementById('selectall');
-
-
-        let tbody = document.querySelector('tbody');
-        let tr = tbody.getElementsByTagName('tr');
-        let ul = document.querySelector('.pagination');
-        let selects = document.querySelector('select');
-        let arrayTr = [];
-
-        for (let i = 0; i < tr.length; i++) {
-            arrayTr.push(tr[i]);
-        }
-
-        selects.onchange = rowCount;
-        function rowCount(e) {
-            let limit = parseInt(e.target.value);
-            displayPage(limit);
-        }
-        function displayPage(limit) {
-            tbody.innerHTML = "";
-            for (let i = 0; i < limit; i++) {
-                tbody.append(arrayTr[i]);
-            }
-            buttonGenerator(limit);
-        }
-        displayPage(4);
-
-        function buttonGenerator(limit){
-            const nofTr = arrayTr.length;
-            if (nofTr <= limit)
-            {
-                ul.style.display = 'none';
-            }
-            else
-            {
-                ul.style.display= 'flex';
-            }
-        }
-    </script>
+            <li class="disabled"><a href="#!"><i class="material-icons">  <  </i></a></li>
+            <li class="active"><a href="#!">1</a></li>
+            <li class="waves-effect"><a href="#!">2</a></li>
+            <li class="waves-effect"><a href="#!">3</a></li>
+            <li class="waves-effect"><a href="#!">4</a></li>
+            <li class="waves-effect"><a href="#!">5</a></li>
+            <li class="waves-effect"><a href="#!"><i class="material-icons">  >  </i></a></li>
+          </ul>
+        </footer>
+    <!--https://www.youtube.com/watch?v=QfjdfDZGyS8-->
+        
     <script src="index.js"></script>
 
 </body>
