@@ -1,0 +1,19 @@
+{
+  "name": "crud-on-localstorage",
+  "version": "1.0.0",
+  "description": "Local storage CRUD with pagination",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DarshitWohlig/CRUD-on-LocalStorage-1.git"
+  },
+  "author": "Darshit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DarshitWohlig/CRUD-on-LocalStorage-1/issues"
+  },
+  "homepage": "https://github.com/DarshitWohlig/CRUD-on-LocalStorage-1#readme"
+}

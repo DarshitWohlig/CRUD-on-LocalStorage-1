@@ -12,7 +12,7 @@ function manageData(){
     else{
         if(id==='' && isNaN(id)==false){     //Checks if ID is null so user is adding data else user is updating data
 
-            let arr = JSON.parse(localStorage.getItem('crud'));  // used to check if there is something named 'crud' already in LocalStorage or not
+             arr = JSON.parse(localStorage.getItem('crud'));  // used to check if there is something named 'crud' already in LocalStorage or not
 
             if(arr==null){     //if there is nothing in localstorage then we add it......
 
@@ -37,24 +37,69 @@ function manageData(){
         }
         selectData();
     }
-    
 }
 
-
 function selectData(){
-    let arr = JSON.parse(localStorage.getItem('crud'));
-    
-    if(arr!=null){
-        let Sno=1;
-        let storage='';
 
-        for (let i in arr){
-          
-            storage += `<tr> <td>${Sno}</td> <td>${arr[i]}</td> <td> <a href=javascript:void(0) onclick="editData(${i})">Edit</a> &nbsp <a href=javascript:void(0) onclick="deleteData(${i})">Delete</a></td> </tr>`
-            Sno++;
+    var arr = JSON.parse(localStorage.getItem('crud'));
+
+     var state = {
+        'querySet': arr,
+        'page': 1,
+        'rows': 3,
+      };
+
+     function pagination(querySet,page,rows){
+        var trimStart = (page-1)*rows;
+        var trimEnd = trimStart+rows;
+
+        trimmedData = querySet.slice(trimStart,trimEnd);
+
+        var pages = Math.ceil(querySet.length /rows);
+
+        return{
+            'querySet':trimmedData,
+            'pages':pages
         }
-        document.getElementById('root').innerHTML=storage;  // inserts localstorage data into Tbody.
+        
     }
+    function paginationButtons(pages){
+    var wrapper = document.getElementById('pagination-wrapper');
+    wrapper.innerHTML='';
+    console.log('Pages:', pages)
+
+    for(var page=1 ; page<=pages ; page++){
+        wrapper.innerHTML += `<button value=${page} class="page btn btn-sm btn-info">${page}</button> `
+    }
+
+    $('.page').on('click', function() {
+
+        $('#root').empty();
+       
+        state.page = $(this).val();
+        selectData()
+    });
+}   
+
+        let Sno = 1;
+        let storage = "";
+
+        data = pagination(state.querySet, state.page, state.rows);
+        console.log("Dataa: ", data);
+        myList = data.querySet;
+
+        for (let i in myList) {
+          storage += `<tr> 
+                            <td>${Sno++}</td> 
+                            <td>${myList[i]}</td>
+                            <td> <a href=javascript:void(0) onclick="editData(${i})">Edit</a> &nbsp 
+                                 <a href=javascript:void(0) onclick="deleteData(${i})">Delete</a>
+                            </td>
+                        </tr>`
+
+          document.getElementById("root").innerHTML = storage; // inserts localstorage data into Tbody
+        }    
+    paginationButtons(data.pages)
 }
 
 
@@ -63,7 +108,6 @@ function editData(refID){
     id=refID;
     let arr = JSON.parse(localStorage.getItem('crud'));
     document.getElementById('name').value=arr[refID];
-  
 
 }
 
