@@ -1,3 +1,5 @@
+//https://www.youtube.com/watch?v=Y36QpYcnbQY Slider Youtube
+
 let id = "";
 selectData(); // we need to call this function in start otherwise our data will not be loaded
 
